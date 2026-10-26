@@ -97,7 +97,8 @@ estimation, causal inference, fixed effects models, or regression tables.
 
 ## Tables And Plots
 
-- Use `pf.etable()` for regression tables.
+- Use `pf.etable()` for regression tables. If the project uses maketables, follow
+  `maketables.md` for tables that are published or saved.
 - Use `type="md"` for Markdown output, `type="tex"` for LaTeX, `type="df"` for
   programmatic post-processing, and the project-preferred rich table backend otherwise.
 - Use `keep`, `drop`, `labels`, and `felabels` to make tables readable.

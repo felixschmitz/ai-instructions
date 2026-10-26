@@ -27,6 +27,7 @@ Use this file to choose rule files. Do not load every rule by default.
 | `optimagic.md`         | The project uses optimagic or the task concerns numerical optimization.                                                    |
 | `ml-econometrics.md`   | The task concerns prediction, causal inference, estimation, or model evaluation.                                           |
 | `pyfixest.md`          | The project uses pyfixest or the task concerns fixed effects, IV, DiD, event studies, or regression tables in PyFixest.    |
+| `maketables.md`        | The project uses maketables or the task concerns publication tables (regression, descriptive, balance, custom).            |
 | `plotting.md`          | The task edits figure-generation code or asks for project plotting standards.                                              |
 | `markitdown.md`        | The task converts documents (PDF, Office, images, audio, HTML, ...) to Markdown/text, or the project imports `markitdown`. |
 

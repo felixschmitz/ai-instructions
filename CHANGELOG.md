@@ -5,6 +5,9 @@ All notable changes to this repository are recorded here, following
 
 ## [Unreleased]
 
+- Add the `maketables.md` package rule (publication tables with `ETable`, `DTable`,
+  `BTable`, `MTable`) and route it in `rules/INDEX.md`.
+
 - Initial public release, derived from
   [OpenSourceEconomics/ai-instructions](https://github.com/OpenSourceEconomics/ai-instructions)
   (MIT). See `LICENSE`.
