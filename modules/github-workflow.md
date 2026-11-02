@@ -4,14 +4,16 @@ Assume projects use GitHub version control unless the user explicitly says other
 
 ## Branch Naming
 
-Use `issue-<number>-<short-description>` (e.g. `issue-12-clean-umsatz`,
-`issue-34-fix-outer-join`). If no issue exists for the work, create one first for
-anything beyond a trivial fix.
+Carry the issue number in the branch name where one exists:
+`issue-<number>-<short-description>` (e.g. `issue-12-clean-umsatz`,
+`issue-34-fix-outer-join`). Tool-generated names, such as Claude Code worktree
+branches, are fine as long as the pull request body links the issue (`Closes #<number>`).
+If no issue exists for the work, create one first for anything beyond a trivial fix.
 
 ## Standard Workflow
 
 1. Start from a GitHub issue or task description whenever one exists.
-1. Check out a new branch named `issue-<number>-<short-description>`.
+1. Check out a new branch, preferably named `issue-<number>-<short-description>`.
 1. Make focused changes that address the issue.
 1. Run the relevant verification commands.
 1. Open a pull request with a clear summary, verification notes, and links to the issue.
