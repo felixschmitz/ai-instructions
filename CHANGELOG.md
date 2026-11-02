@@ -5,6 +5,9 @@ All notable changes to this repository are recorded here, following
 
 ## [Unreleased]
 
+- Relax the branch naming convention: tool-generated branch names are fine if the PR
+  body links the issue; the PR review command checks the issue link instead.
+
 - Add the `merge-commit` and `merge-squash` commands: merge the current PR, delete its
   local and remote branches and worktrees, and pull `main`.
 

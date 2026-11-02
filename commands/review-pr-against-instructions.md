@@ -24,7 +24,8 @@ adversarial read, not a self-check.
 1. Check code-level standards using `verify-standards.md`'s checklist, scoped only to
    the files touched by this diff, not the whole codebase.
 1. Check the diff against `modules/github-workflow.md`'s workflow conventions:
-   - branch name matches `issue-<number>-<short-description>`
+   - the PR body links the issue (`Closes #<number>`), or the branch name is
+     `issue-<number>-<short-description>`
    - a `CHANGELOG.md` entry was added under `[Unreleased]` if behavior, dependencies, or
      structure changed
    - a `Co-Authored-By: Claude <model name> <noreply@anthropic.com>` trailer is present
