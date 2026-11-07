@@ -20,7 +20,8 @@ Use this file to choose rule files. Do not load every rule by default.
 | `core-python.md`       | The task edits or reviews Python code in a research project.                                                               |
 | `project-structure.md` | The task edits or reviews a research project's repository layout, build outputs, instruction files, or path configuration. |
 | `pytask.md`            | The project uses pytask, has `task_*.py` files, or the task concerns data/build pipeline tasks.                            |
-| `pandas.md`            | The code imports pandas or the task concerns tabular data management.                                                      |
+| `pandas.md`            | The code imports pandas or the task concerns tabular data management in a project that uses pandas.                        |
+| `polars.md`            | The code imports Polars or the task concerns tabular data management in a project that uses Polars.                        |
 | `numpy.md`             | The code imports NumPy or the task concerns array programming or simulation.                                               |
 | `jax.md`               | The code imports JAX or the task concerns JAX-compatible numerical code.                                                   |
 | `dags.md`              | The project uses `dags` or the task concerns function composition through dependency graphs.                               |

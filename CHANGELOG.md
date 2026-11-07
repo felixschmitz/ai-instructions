@@ -5,6 +5,13 @@ All notable changes to this repository are recorded here, following
 
 ## [Unreleased]
 
+- Add the `polars.md` package rule (expression-based data management with Polars) and
+  route it in `rules/INDEX.md`.
+
+- Add the `tier-d-project` profile for small, non-research coding projects: core Python,
+  project structure, pytask, NumPy, and the GitHub workflow, with package rules (Polars,
+  pandas, plotting, ML) routed through `rules/INDEX.md`.
+
 - Relax the branch naming convention: tool-generated branch names are fine if the PR
   body links the issue; the PR review command checks the issue link instead.
 
