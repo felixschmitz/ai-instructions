@@ -7,7 +7,8 @@ allowed-tools: Bash, Read
 # Merge Commit
 
 Merge the pull request under discussion with a merge commit, delete its local and remote
-branches and worktrees, and update local `main`.
+branches and worktrees, and update local `main`. If required checks are still running,
+enable auto-merge instead of waiting for them.
 
 Invoking this command is the user's approval to merge (see "Agent Behavior" in
 `modules/github-workflow.md`). Use `merge-squash.md` instead for a single squashed
@@ -23,16 +24,26 @@ commit.
 
 1. **Inspect the PR.** `gh pr view <number> --json
    state,isDraft,mergeable,mergeStateStatus,headRefName,baseRefName,statusCheckRollup`.
-   Stop and report instead of merging if the PR is not `OPEN`, is a draft, is not
-   mergeable, or has failing required checks. Do not bypass with `--admin`.
+   If the state is already `MERGED`, skip to "Cleanup". Stop and report instead of
+   merging if the PR is not `OPEN`, is a draft, is not mergeable, or has failing required
+   checks. Pending checks are not a reason to stop or wait (see "Merge"). Do not bypass
+   with `--admin`.
 1. **Find the checkouts.** The main checkout is the first entry of
    `git worktree list --porcelain`. Run the remaining steps from there (`git -C <main>`),
    not from a worktree that is about to be removed. List every worktree whose branch is
    the PR's head branch.
-1. **Merge.** `gh pr merge <number> --merge`. Do not pass `--delete-branch`: it cannot
-   delete a branch that is checked out in a worktree. If the merge is refused, report
-   why and stop; leave all branches and worktrees untouched.
-1. **Clean up** (see "Cleanup" below).
+1. **Merge.** Do not pass `--delete-branch`: it cannot delete a branch that is checked
+   out in a worktree. If the merge is refused, report why and stop; leave all branches
+   and worktrees untouched.
+   - All required checks passed: `gh pr merge <number> --merge`, then clean up.
+   - Required checks pending: `gh pr merge <number> --merge --auto`. GitHub merges once
+     the checks pass and does not merge if one fails. Do not poll or watch the checks.
+     Report that auto-merge is enabled, leave all branches and worktrees in place, and
+     stop. Running this command again after the merge performs the cleanup.
+   - If auto-merge is refused because the repository does not allow it, report that and
+     stop instead of waiting for the checks.
+1. **Clean up** (see "Cleanup" below) after an immediate merge, or when the PR is already
+   `MERGED`.
 
 ## Cleanup
 
