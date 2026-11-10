@@ -7,7 +7,8 @@ allowed-tools: Bash, Read
 # Merge Squash
 
 Squash-merge the pull request under discussion, delete its local and remote branches and
-worktrees, and update local `main`.
+worktrees, and update local `main`. If required checks are still running, enable
+auto-merge instead of waiting for them.
 
 Invoking this command is the user's approval to merge (see "Agent Behavior" in
 `modules/github-workflow.md`). Use `merge-commit.md` instead to keep the branch's
@@ -25,7 +26,10 @@ Follow `merge-commit.md`, with these differences:
 
 1. Steps "Inspect the PR" and "Find the checkouts" are identical.
 1. **Merge** with a squash commit instead of a merge commit:
-   `gh pr merge <number> --squash --subject "<PR title> (#<number>)" --body-file <file>`.
+   `gh pr merge <number> --squash --subject "<PR title> (#<number>)" --body-file <file>`,
+   adding `--auto` when required checks are pending (the subject and body are stored
+   and used when GitHub merges). Pending checks, auto-merge refusal and the stop after
+   enabling auto-merge follow `merge-commit.md`.
    - Subject: the PR title plus ` (#<number>)`.
    - Body: the PR description with the closing `Fixes #<issue>` line kept, not the list
      of squashed commit messages. Write it to a temporary file in `$CLAUDE_JOB_DIR/tmp`
